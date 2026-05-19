@@ -33,7 +33,9 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    background: 'linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%)',
+    background: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://minimax-algeng-chat-tts-us.oss-us-east-1.aliyuncs.com/ccv2%2F2026-05-19%2FMiniMax-M2.7%2F2053528104411869618%2Ffb386fe3dfbe9bdf9a5b136ed505fb1ccc0e5f43cdc18caee203154ac32dbc01..jpeg?Expires=1779266111&OSSAccessKeyId=LTAI5tCpJNKCf5EkQHSuL9xg&Signature=bB3vW17xicO4f5XXFj7te5koVkY%3D)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
     padding: '1rem',
   },
   card: {
