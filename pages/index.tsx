@@ -12,23 +12,6 @@ export default function Home() {
         <p style={styles.subtext}>
           Bridging email cultures between the USA & China
         </p>
-        <div style={styles.features}>
-          <div style={styles.feature}>
-            <span style={styles.featureEmoji}>💬</span>
-            <h3>Communication Styles</h3>
-            <p>Understanding direct vs indirect approaches</p>
-          </div>
-          <div style={styles.feature}>
-            <span style={styles.featureEmoji}>🤝</span>
-            <h3>Relationship First</h3>
-            <p>Building trust before business</p>
-          </div>
-          <div style={styles.feature}>
-            <span style={styles.featureEmoji}>🌏</span>
-            <h3>Global Teams</h3>
-            <p>Connecting East & West</p>
-          </div>
-        </div>
         <div style={styles.footer}>
           Better communication starts with understanding
         </div>
@@ -59,7 +42,7 @@ const styles: Record<string, React.CSSProperties> = {
     padding: '3rem',
     textAlign: 'center',
     boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
-    maxWidth: '600px',
+    maxWidth: '500px',
     width: '100%',
   },
   header: {
@@ -67,7 +50,7 @@ const styles: Record<string, React.CSSProperties> = {
     justifyContent: 'center',
     alignItems: 'center',
     gap: '0.75rem',
-    marginBottom: '1rem',
+    marginBottom: '1.5rem',
   },
   flag: {
     fontSize: '2rem',
@@ -80,37 +63,10 @@ const styles: Record<string, React.CSSProperties> = {
     letterSpacing: '0.1em',
   },
   subtext: {
-    fontSize: '1.1rem',
+    fontSize: '1.2rem',
     color: '#4a5568',
-    margin: '0 0 2.5rem 0',
-  },
-  features: {
-    display: 'flex',
-    gap: '1.5rem',
-    marginBottom: '2rem',
-  },
-  feature: {
-    flex: 1,
-    padding: '1.25rem 1rem',
-    background: '#f7fafc',
-    borderRadius: '16px',
-  },
-  featureEmoji: {
-    fontSize: '2rem',
-    display: 'block',
-    marginBottom: '0.75rem',
-  },
-  features h3: {
-    fontSize: '0.95rem',
-    fontWeight: '700',
-    color: '#2d3748',
-    margin: '0 0 0.5rem 0',
-  },
-  features p: {
-    fontSize: '0.8rem',
-    color: '#718096',
-    margin: 0,
-    lineHeight: '1.4',
+    margin: '0 0 2rem 0',
+    lineHeight: '1.6',
   },
   footer: {
     fontSize: '0.85rem',
