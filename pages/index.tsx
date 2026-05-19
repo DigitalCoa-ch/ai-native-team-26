@@ -45,28 +45,22 @@ const SECTIONS = [
 export default function Home() {
   return (
     <div style={styles.pageWrapper}>
-      <header style={styles.header}>
-        <div style={styles.headerLeft}>
-          <span style={styles.headerLogo}>🇺🇸</span>
-          <span style={styles.headerTitle}>Email Culture Bridge</span>
-          <span style={styles.headerLogo}>🇨🇳</span>
-        </div>
-        <div style={styles.headerRight}>
-          <span style={styles.headerBadge}>B2B SaaS Utility</span>
-          <span style={styles.headerVersion}>v1.0 Enterprise</span>
-        </div>
-      </header>
+      <div style={styles.topBar}>
+        <span style={styles.topLogo}>🇺🇸</span>
+        <span style={styles.topTitle}>Email Culture Bridge</span>
+        <span style={styles.topLogo}>🇨🇳</span>
+      </div>
+
+      <div style={styles.heroSection}>
+        <h1 style={styles.heroTitle}>What would you like to do?</h1>
+        <p style={styles.heroSubtitle}>Select a module below to get started</p>
+      </div>
 
       <main style={styles.mainContent}>
-        <div style={styles.heroSection}>
-          <h1 style={styles.heroTitle}>What would you like to do?</h1>
-          <p style={styles.heroSubtitle}>Select a module below to get started</p>
-        </div>
-
         <div style={styles.grid}>
           {SECTIONS.map((section) => (
             <Link key={section.num} href={section.href} style={{ textDecoration: 'none' }}>
-              <div style={{ ...styles.card, borderTop: `4px solid ${section.color}` }}>
+              <div style={{ ...styles.card, borderTop: `5px solid ${section.color}` }}>
                 <div style={styles.cardNum}>
                   <span style={{ ...styles.numCircle, backgroundColor: section.color }}>{section.num}</span>
                 </div>
@@ -87,25 +81,21 @@ export default function Home() {
 }
 
 const styles = {
-  pageWrapper: { fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", minHeight: '100vh', backgroundColor: '#0f172a', color: '#e2e8f0' },
-  header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem', borderBottom: '1px solid #1e293b', backgroundColor: '#1e293b' },
-  headerLeft: { display: 'flex', alignItems: 'center', gap: '0.75rem' },
-  headerLogo: { fontSize: '1.5rem' },
-  headerTitle: { fontSize: '1.1rem', fontWeight: '700', color: '#f8fafc', letterSpacing: '0.05em' },
-  headerRight: { display: 'flex', alignItems: 'center', gap: '1rem' },
-  headerBadge: { fontSize: '0.7rem', fontWeight: '600', color: '#0f172a', backgroundColor: '#22d3ee', padding: '0.25rem 0.75rem', borderRadius: '9999px', textTransform: 'uppercase', letterSpacing: '0.05em' },
-  headerVersion: { fontSize: '0.75rem', color: '#64748b' },
-  mainContent: { padding: '3rem 2rem', maxWidth: '1200px', margin: '0 auto' },
-  heroSection: { textAlign: 'center', marginBottom: '3rem' },
-  heroTitle: { fontSize: '2rem', fontWeight: '800', color: '#f8fafc', margin: '0 0 0.5rem 0' },
-  heroSubtitle: { fontSize: '1rem', color: '#94a3b8', margin: 0 },
+  pageWrapper: { fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", minHeight: '100vh', backgroundColor: '#f8fafc' },
+  topBar: { display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1.5rem 2rem', backgroundColor: '#0f172a' },
+  topLogo: { fontSize: '1.75rem' },
+  topTitle: { fontSize: '1.5rem', fontWeight: '800', color: '#ffffff', letterSpacing: '0.02em' },
+  heroSection: { padding: '2.5rem 2rem 1.5rem', textAlign: 'left', maxWidth: '1200px', margin: '0 auto' },
+  heroTitle: { fontSize: '1.75rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.25rem 0' },
+  heroSubtitle: { fontSize: '1rem', color: '#64748b', margin: 0 },
+  mainContent: { padding: '0 2rem 3rem', maxWidth: '1200px', margin: '0 auto' },
   grid: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' },
-  card: { backgroundColor: '#1e293b', borderRadius: '16px', padding: '2rem', border: '1px solid #334155', cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s', display: 'flex', flexDirection: 'column' },
+  card: { backgroundColor: '#ffffff', borderRadius: '16px', padding: '2rem', border: '1px solid #e2e8f0', cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s', display: 'flex', flexDirection: 'column' },
   cardNum: { marginBottom: '1rem' },
-  numCircle: { width: '32px', height: '32px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem', fontWeight: '700', color: '#0f172a' },
+  numCircle: { width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: '800', color: '#0f172a' },
   cardIcon: { fontSize: '2.5rem', marginBottom: '1rem' },
-  cardTitle: { fontSize: '1.1rem', fontWeight: '700', color: '#f8fafc', margin: '0 0 0.25rem 0' },
-  cardSubtitle: { fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 1rem 0' },
-  cardDesc: { fontSize: '0.875rem', color: '#94a3b8', lineHeight: '1.6', margin: '0 0 1.5rem 0', flex: 1 },
-  cardAction: { fontSize: '0.875rem', fontWeight: '600' },
+  cardTitle: { fontSize: '1.1rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.25rem 0' },
+  cardSubtitle: { fontSize: '0.75rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748b', margin: '0 0 1rem 0' },
+  cardDesc: { fontSize: '0.875rem', color: '#475569', lineHeight: '1.6', margin: '0 0 1.5rem 0', flex: 1 },
+  cardAction: { fontSize: '0.875rem', fontWeight: '700' },
 };
