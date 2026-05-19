@@ -9,43 +9,34 @@ export default function Home() {
           <span style={styles.title}>Email Culture Bridge</span>
           <span style={styles.flag}>🇨🇳</span>
         </div>
-        <h1 style={styles.heading}>Can't wait to be Friday</h1>
-        <div style={styles.divider} />
         <p style={styles.subtext}>
           Bridging email cultures between the USA & China
         </p>
-        <div style={styles.comparison}>
-          <div style={styles.column}>
-            <h3 style={styles.columnTitle}>🇺🇸 American Style</h3>
-            <ul style={styles.list}>
-              <li>Direct & concise</li>
-              <li>Get to the point fast</li>
-              <li>"How are you?" is small talk</li>
-              <li>Clear subject lines</li>
-            </ul>
+        <div style={styles.features}>
+          <div style={styles.feature}>
+            <span style={styles.featureEmoji}>💬</span>
+            <h3>Communication Styles</h3>
+            <p>Understanding direct vs indirect approaches</p>
           </div>
-          <div style={styles.column}>
-            <h3 style={styles.columnTitle}>🇨🇳 Chinese Style</h3>
-            <ul style={styles.list}>
-              <li>Indirect & contextual</li>
-              <li>Build relationship first</li>
-              <li>Greetings show respect</li>
-              <li>Context matters more</li>
-            </ul>
+          <div style={styles.feature}>
+            <span style={styles.featureEmoji}>🤝</span>
+            <h3>Relationship First</h3>
+            <p>Building trust before business</p>
+          </div>
+          <div style={styles.feature}>
+            <span style={styles.featureEmoji}>🌏</span>
+            <h3>Global Teams</h3>
+            <p>Connecting East & West</p>
           </div>
         </div>
         <div style={styles.footer}>
-          🌏 Connecting East & West through better communication
+          Better communication starts with understanding
         </div>
       </div>
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        @keyframes shimmer {
-          0% { background-position: -200% center; }
-          100% { background-position: 200% center; }
+          50% { transform: translateY(-8px); }
         }
       `}</style>
     </div>
@@ -76,7 +67,7 @@ const styles: Record<string, React.CSSProperties> = {
     justifyContent: 'center',
     alignItems: 'center',
     gap: '0.75rem',
-    marginBottom: '1.5rem',
+    marginBottom: '1rem',
   },
   flag: {
     fontSize: '2rem',
@@ -88,49 +79,38 @@ const styles: Record<string, React.CSSProperties> = {
     textTransform: 'uppercase',
     letterSpacing: '0.1em',
   },
-  heading: {
-    fontSize: '2.5rem',
-    fontWeight: '800',
-    color: '#1a365d',
-    margin: '0 0 1rem 0',
-    lineHeight: '1.2',
-  },
-  divider: {
-    width: '80px',
-    height: '4px',
-    background: 'linear-gradient(90deg, #3182ce, #4299e1)',
-    borderRadius: '2px',
-    margin: '0 auto 1.5rem',
-  },
   subtext: {
     fontSize: '1.1rem',
     color: '#4a5568',
-    margin: '0 0 2rem 0',
+    margin: '0 0 2.5rem 0',
   },
-  comparison: {
+  features: {
     display: 'flex',
-    gap: '2rem',
-    textAlign: 'left',
+    gap: '1.5rem',
     marginBottom: '2rem',
   },
-  column: {
+  feature: {
     flex: 1,
-    padding: '1.25rem',
+    padding: '1.25rem 1rem',
     background: '#f7fafc',
     borderRadius: '16px',
   },
-  columnTitle: {
-    fontSize: '1rem',
+  featureEmoji: {
+    fontSize: '2rem',
+    display: 'block',
+    marginBottom: '0.75rem',
+  },
+  features h3: {
+    fontSize: '0.95rem',
     fontWeight: '700',
     color: '#2d3748',
-    margin: '0 0 1rem 0',
+    margin: '0 0 0.5rem 0',
   },
-  list: {
+  features p: {
+    fontSize: '0.8rem',
+    color: '#718096',
     margin: 0,
-    padding: '0 0 0 1.25rem',
-    fontSize: '0.9rem',
-    color: '#4a5568',
-    lineHeight: '1.8',
+    lineHeight: '1.4',
   },
   footer: {
     fontSize: '0.85rem',
