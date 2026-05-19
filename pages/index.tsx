@@ -4,14 +4,38 @@ export default function Home() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <div style={styles.emoji}>🎉</div>
+        <div style={styles.header}>
+          <span style={styles.flag}>🇺🇸</span>
+          <span style={styles.title}>Email Culture Bridge</span>
+          <span style={styles.flag}>🇨🇳</span>
+        </div>
         <h1 style={styles.heading}>Can't wait to be Friday</h1>
         <div style={styles.divider} />
         <p style={styles.subtext}>
-          The weekend is calling. Are you ready?
+          Bridging email cultures between the USA & China
         </p>
-        <div style={styles.countdown}>
-          <Countdown />
+        <div style={styles.comparison}>
+          <div style={styles.column}>
+            <h3 style={styles.columnTitle}>🇺🇸 American Style</h3>
+            <ul style={styles.list}>
+              <li>Direct & concise</li>
+              <li>Get to the point fast</li>
+              <li>"How are you?" is small talk</li>
+              <li>Clear subject lines</li>
+            </ul>
+          </div>
+          <div style={styles.column}>
+            <h3 style={styles.columnTitle}>🇨🇳 Chinese Style</h3>
+            <ul style={styles.list}>
+              <li>Indirect & contextual</li>
+              <li>Build relationship first</li>
+              <li>Greetings show respect</li>
+              <li>Context matters more</li>
+            </ul>
+          </div>
+        </div>
+        <div style={styles.footer}>
+          🌏 Connecting East & West through better communication
         </div>
       </div>
       <style>{`
@@ -19,49 +43,13 @@ export default function Home() {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-10px); }
         }
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
+        @keyframes shimmer {
+          0% { background-position: -200% center; }
+          100% { background-position: 200% center; }
         }
       `}</style>
     </div>
   );
-}
-
-function Countdown() {
-  const [timeLeft, setTimeLeft] = React.useState('');
-
-  React.useEffect(() => {
-    const update = () => {
-      const now = new Date();
-      const friday = new Date(now);
-      friday.setDate(now.getDate() + ((5 - now.getDay() + 7) % 7 || 7));
-      friday.setHours(17, 0, 0, 0);
-      
-      if (now.getDay() === 5 && now.getHours() >= 17) {
-        setTimeLeft('🎊 It\'s Friday! Enjoy!');
-        return;
-      }
-      
-      const diff = friday - now;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      
-      if (days > 0) {
-        setTimeLeft(`${days}d ${hours}h ${mins}m until Friday`);
-      } else if (hours > 0) {
-        setTimeLeft(`${hours}h ${mins}m until Friday`);
-      } else {
-        setTimeLeft(`${mins}m until Friday!`);
-      }
-    };
-    update();
-    const interval = setInterval(update, 60000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return <p style={styles.countdownText}>{timeLeft}</p>;
 }
 
 const styles: Record<string, React.CSSProperties> = {
@@ -71,54 +59,84 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    background: 'linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%)',
     padding: '1rem',
   },
   card: {
     background: 'rgba(255, 255, 255, 0.95)',
     borderRadius: '24px',
-    padding: '3rem 4rem',
+    padding: '3rem',
     textAlign: 'center',
-    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    maxWidth: '500px',
+    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
+    maxWidth: '600px',
     width: '100%',
   },
-  emoji: {
-    fontSize: '4rem',
-    animation: 'float 3s ease-in-out infinite',
-    marginBottom: '1rem',
+  header: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '0.75rem',
+    marginBottom: '1.5rem',
+  },
+  flag: {
+    fontSize: '2rem',
+  },
+  title: {
+    fontSize: '0.9rem',
+    fontWeight: '600',
+    color: '#4299e1',
+    textTransform: 'uppercase',
+    letterSpacing: '0.1em',
   },
   heading: {
     fontSize: '2.5rem',
     fontWeight: '800',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    margin: '0 0 1.5rem 0',
+    color: '#1a365d',
+    margin: '0 0 1rem 0',
     lineHeight: '1.2',
   },
   divider: {
-    width: '60px',
+    width: '80px',
     height: '4px',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    background: 'linear-gradient(90deg, #3182ce, #4299e1)',
     borderRadius: '2px',
     margin: '0 auto 1.5rem',
   },
   subtext: {
     fontSize: '1.1rem',
-    color: '#6b7280',
+    color: '#4a5568',
     margin: '0 0 2rem 0',
   },
-  countdown: {
-    background: '#f3f4f6',
-    borderRadius: '12px',
-    padding: '1rem',
+  comparison: {
+    display: 'flex',
+    gap: '2rem',
+    textAlign: 'left',
+    marginBottom: '2rem',
   },
-  countdownText: {
-    margin: 0,
+  column: {
+    flex: 1,
+    padding: '1.25rem',
+    background: '#f7fafc',
+    borderRadius: '16px',
+  },
+  columnTitle: {
     fontSize: '1rem',
-    color: '#4b5563',
-    fontWeight: '500',
+    fontWeight: '700',
+    color: '#2d3748',
+    margin: '0 0 1rem 0',
+  },
+  list: {
+    margin: 0,
+    padding: '0 0 0 1.25rem',
+    fontSize: '0.9rem',
+    color: '#4a5568',
+    lineHeight: '1.8',
+  },
+  footer: {
+    fontSize: '0.85rem',
+    color: '#718096',
+    padding: '1rem',
+    background: '#edf2f7',
+    borderRadius: '12px',
   },
 };
