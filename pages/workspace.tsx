@@ -101,7 +101,7 @@ export default function Workspace() {
   );
 }
 
-const styles = {
+const styles: { [key: string]: React.CSSProperties } = {
   pageWrapper: { fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", minHeight: '100vh', backgroundColor: '#0f172a', color: '#e2e8f0' },
   header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem', borderBottom: '1px solid #1e293b', backgroundColor: '#1e293b' },
   headerLeft: { display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' },
@@ -110,7 +110,7 @@ const styles = {
   headerRight: { display: 'flex', alignItems: 'center', gap: '1rem' },
   headerBadge: { fontSize: '0.7rem', fontWeight: '600', color: '#0f172a', backgroundColor: '#22d3ee', padding: '0.25rem 0.75rem', borderRadius: '9999px', textTransform: 'uppercase', letterSpacing: '0.05em' },
   headerVersion: { fontSize: '0.75rem', color: '#64748b' },
-  nav: { display: 'flex', padding: '0 2rem', backgroundColor: '#1e293b', borderBottom: '1px solid #334155', overflowX: 'auto' },
+  nav: { display: 'flex', padding: '0 2rem', backgroundColor: '#1e293b', borderBottom: '1px solid #334155', overflowX: 'auto' as const },
   navLink: { padding: '0.875rem 1.5rem', fontSize: '0.875rem', fontWeight: '600', color: '#94a3b8', textDecoration: 'none', borderBottom: '2px solid transparent', whiteSpace: 'nowrap' },
   navLinkActive: { color: '#22d3ee', borderBottom: '2px solid #22d3ee' },
   mainContent: { padding: '2rem', maxWidth: '800px', margin: '0 auto' },

@@ -82,7 +82,7 @@ export default function Home() {
   );
 }
 
-const styles = {
+const styles: { [key: string]: React.CSSProperties } = {
   pageWrapper: { fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", minHeight: '100vh', backgroundColor: '#f8fafc' },
   topBar: { display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1.5rem 2rem', backgroundColor: '#0f172a' },
   topLogo: { fontSize: '1.75rem' },
