@@ -42,9 +42,11 @@ const SECTIONS = [
   },
 ];
 
+const BACKGROUND_IMAGE = 'https://minimax-algeng-chat-tts-us.oss-us-east-1.aliyuncs.com/ccv2%2F2026-05-20%2FMiniMax-M2.7%2F2053528104411869618%2Ffb386fe3dfbe9bdf9a5b136ed505fb1ccc0e5f43cdc18caee203154ac32dbc01..jpeg?Expires=1779362194&OSSAccessKeyId=LTAI5tCpJNKCf5EkQHSuL9xg&Signature=xsItlr31gpCFmljMHfdfA4dwpjE%3D';
+
 export default function Home() {
   return (
-    <div style={styles.pageWrapper}>
+    <div style={{ ...styles.pageWrapper, backgroundImage: `url(${BACKGROUND_IMAGE})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div style={styles.topBar}>
         <span style={styles.topLogo}>🇺🇸</span>
         <span style={styles.topTitle}>Email Culture Bridge</span>
