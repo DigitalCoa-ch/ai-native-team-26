@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 const KNOWLEDGE_RULES = [
   { id: 1, title: 'Context Before Demand (因果)', desc: 'Lead with shared background/situational constraints before placing requests.' },
@@ -12,11 +12,30 @@ const KNOWLEDGE_RULES = [
   { id: 5, title: 'Collectivist Framing', desc: 'Reframe personal accountability as mutual project success.' },
 ];
 
+const RELATIONSHIP_LABELS: { [key: string]: string } = {
+  prospect: 'New Prospect / Cold Outreach',
+  vendor: 'Long-Term Vendor',
+  government: 'Senior Government Official',
+  peer: 'Peer-to-Peer Colleague',
+};
+
 export default function Workspace() {
   const [emailDraft, setEmailDraft] = useState('');
   const [relationship, setRelationship] = useState('');
   const [loading, setLoading] = useState(false);
+  const [contextChanged, setContextChanged] = useState(false);
   const router = useRouter();
+
+  const handleRelationshipChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newValue = e.target.value;
+    if (newValue !== relationship && emailDraft.trim()) {
+      setContextChanged(true);
+      setEmailDraft('');
+    } else {
+      setContextChanged(false);
+    }
+    setRelationship(newValue);
+  };
 
   const handleAnalyze = () => {
     if (!emailDraft.trim()) return;
@@ -67,7 +86,7 @@ export default function Workspace() {
 
             <div style={styles.formGroup}>
               <label style={styles.label}>Relationship Context</label>
-              <select style={styles.select} value={relationship} onChange={(e) => setRelationship(e.target.value)}>
+              <select style={styles.select} value={relationship} onChange={handleRelationshipChange}>
                 <option value="">Select context...</option>
                 <option value="prospect">New Prospect / Cold Outreach</option>
                 <option value="vendor">Long-Term Vendor</option>
@@ -77,13 +96,19 @@ export default function Workspace() {
             </div>
           </div>
 
+          {contextChanged && (
+            <div style={styles.contextWarning}>
+              ⚠️ Context changed — previous draft cleared. Enter new draft for {RELATIONSHIP_LABELS[relationship as keyof typeof RELATIONSHIP_LABELS] || 'selected context'}.
+            </div>
+          )}
+
           <div style={styles.formGroup}>
             <label style={styles.label}>Raw Western Email Draft</label>
             <textarea
               style={styles.textarea}
               placeholder="e.g., Send me the Q2 financial report by Tuesday morning. Do not be late."
               value={emailDraft}
-              onChange={(e) => setEmailDraft(e.target.value)}
+              onChange={(e) => { setEmailDraft(e.target.value); setContextChanged(false); }}
               rows={6}
             />
           </div>
@@ -123,6 +148,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   label: { display: 'block', fontSize: '0.8rem', fontWeight: '600', color: '#cbd5e1', marginBottom: '0.5rem' },
   select: { width: '100%', padding: '0.75rem 1rem', fontSize: '0.875rem', backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '8px', color: '#e2e8f0', outline: 'none' },
   textarea: { width: '100%', padding: '0.75rem 1rem', fontSize: '0.875rem', fontFamily: 'inherit', backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '8px', color: '#e2e8f0', outline: 'none', resize: 'vertical', boxSizing: 'border-box' },
+  contextWarning: { fontSize: '0.8rem', color: '#fbbf24', backgroundColor: 'rgba(251, 191, 36, 0.1)', border: '1px solid rgba(251, 191, 36, 0.3)', padding: '0.75rem 1rem', borderRadius: '8px', marginBottom: '1rem' },
   primaryBtn: { width: '100%', padding: '0.875rem 1.5rem', fontSize: '0.9rem', fontWeight: '700', color: '#0f172a', backgroundColor: '#22d3ee', border: 'none', borderRadius: '8px', cursor: 'pointer' },
   btnDisabled: { backgroundColor: '#334155', color: '#64748b', cursor: 'not-allowed' },
 };
