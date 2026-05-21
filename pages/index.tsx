@@ -15,22 +15,20 @@ export default function Home() {
       </div>
 
       <main style={styles.mainContent}>
-        <div style={styles.heroCard}>
-          <h1 style={styles.heroTitle}>Cultural Bridge Builder<br />Between The USA & China</h1>
-          <p style={styles.heroSlogan}>Translate Meaning, Not Just Language</p>
-          <div style={styles.divider} />
-          <p style={styles.heroDesc}>
-            Transform direct Western email drafts into culturally appropriate communications 
-            for Chinese business contexts — while preserving your original intent.
-          </p>
-          <div style={styles.ctaButtons}>
-            <Link href="/workspace" style={styles.primaryBtn}>
-              Start Reframing →
-            </Link>
-            <Link href="/about" style={styles.secondaryBtn}>
-              Learn More
-            </Link>
-          </div>
+        <h1 style={styles.heroTitle}>Cultural Bridge Builder<br />Between The USA & China</h1>
+        <p style={styles.heroSlogan}>Translate Meaning, Not Just Language</p>
+        <div style={styles.divider} />
+        <p style={styles.heroDesc}>
+          Transform direct Western email drafts into culturally appropriate communications 
+          for Chinese business contexts — while preserving your original intent.
+        </p>
+        <div style={styles.ctaButtons}>
+          <Link href="/workspace" style={styles.primaryBtn}>
+            Start Reframing →
+          </Link>
+          <Link href="/about" style={styles.secondaryBtn}>
+            Learn More
+          </Link>
         </div>
       </main>
     </div>
@@ -39,16 +37,15 @@ export default function Home() {
 
 const styles: { [key: string]: React.CSSProperties } = {
   pageWrapper: { fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", minHeight: '100vh', backgroundColor: '#0f172a' },
-  topBar: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '1.5rem 2rem', backgroundColor: 'rgba(15, 23, 42, 0.9)', borderBottom: '1px solid #1e293b' },
+  topBar: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '1.5rem 2rem', backgroundColor: 'rgba(15, 23, 42, 0.7)' },
   topLogo: { fontSize: '1.75rem' },
   topTitle: { fontSize: '1.5rem', fontWeight: '800', color: '#ffffff', letterSpacing: '0.02em' },
-  mainContent: { padding: '3rem 2rem', maxWidth: '900px', margin: '0 auto', minHeight: 'calc(100vh - 80px)', display: 'flex', alignItems: 'center' },
-  heroCard: { textAlign: 'center', padding: '3rem 2rem', backgroundColor: 'rgba(30, 41, 59, 0.95)', borderRadius: '24px', border: '1px solid #334155', backdropFilter: 'blur(8px)', width: '100%' },
-  heroTitle: { fontSize: '2.25rem', fontWeight: '800', color: '#f8fafc', margin: '0 0 1rem 0', lineHeight: '1.2' },
-  heroSlogan: { fontSize: '1.25rem', fontWeight: '600', color: '#22d3ee', margin: '0 0 1.5rem 0', letterSpacing: '0.02em' },
+  mainContent: { padding: '3rem 2rem', maxWidth: '900px', margin: '0 auto', minHeight: 'calc(100vh - 80px)', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' },
+  heroTitle: { fontSize: '2.25rem', fontWeight: '800', color: '#ffffff', margin: '0 0 1rem 0', lineHeight: '1.2' },
+  heroSlogan: { fontSize: '1.25rem', fontWeight: '600', color: '#ffffff', margin: '0 0 1.5rem 0', letterSpacing: '0.02em' },
   divider: { width: '80px', height: '4px', backgroundColor: '#22d3ee', borderRadius: '2px', margin: '0 auto 1.5rem' },
-  heroDesc: { fontSize: '1rem', color: '#94a3b8', lineHeight: '1.7', margin: '0 0 2rem 0', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' },
+  heroDesc: { fontSize: '1rem', color: '#e2e8f0', lineHeight: '1.7', margin: '0 0 2rem 0', maxWidth: '600px' },
   ctaButtons: { display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' },
   primaryBtn: { padding: '0.875rem 2rem', fontSize: '1rem', fontWeight: '700', color: '#0f172a', backgroundColor: '#22d3ee', borderRadius: '8px', textDecoration: 'none' },
-  secondaryBtn: { padding: '0.875rem 2rem', fontSize: '1rem', fontWeight: '700', color: '#22d3ee', backgroundColor: 'transparent', border: '2px solid #22d3ee', borderRadius: '8px', textDecoration: 'none' },
+  secondaryBtn: { padding: '0.875rem 2rem', fontSize: '1rem', fontWeight: '700', color: '#ffffff', backgroundColor: 'transparent', border: '2px solid #ffffff', borderRadius: '8px', textDecoration: 'none' },
 };
