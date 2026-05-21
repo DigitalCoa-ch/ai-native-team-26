@@ -37,15 +37,15 @@ export default function Home() {
 
 const styles: { [key: string]: React.CSSProperties } = {
   pageWrapper: { fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", minHeight: '100vh', backgroundColor: '#0f172a' },
-  topBar: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '1.5rem 2rem', backgroundColor: 'rgba(15, 23, 42, 0.7)' },
+  topBar: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '1.5rem 2rem', backgroundColor: 'rgba(255, 255, 255, 0.8)' },
   topLogo: { fontSize: '1.75rem' },
-  topTitle: { fontSize: '1.5rem', fontWeight: '800', color: '#ffffff', letterSpacing: '0.02em' },
+  topTitle: { fontSize: '1.5rem', fontWeight: '800', color: '#0f172a', letterSpacing: '0.02em' },
   mainContent: { padding: '3rem 2rem', maxWidth: '900px', margin: '0 auto', minHeight: 'calc(100vh - 80px)', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' },
-  heroTitle: { fontSize: '2.25rem', fontWeight: '800', color: '#ffffff', margin: '0 0 1rem 0', lineHeight: '1.2' },
-  heroSlogan: { fontSize: '1.25rem', fontWeight: '600', color: '#ffffff', margin: '0 0 1.5rem 0', letterSpacing: '0.02em' },
+  heroTitle: { fontSize: '2.25rem', fontWeight: '800', color: '#0f172a', margin: '0 0 1rem 0', lineHeight: '1.2' },
+  heroSlogan: { fontSize: '1.25rem', fontWeight: '600', color: '#0f172a', margin: '0 0 1.5rem 0', letterSpacing: '0.02em' },
   divider: { width: '80px', height: '4px', backgroundColor: '#22d3ee', borderRadius: '2px', margin: '0 auto 1.5rem' },
-  heroDesc: { fontSize: '1rem', color: '#e2e8f0', lineHeight: '1.7', margin: '0 0 2rem 0', maxWidth: '600px' },
+  heroDesc: { fontSize: '1rem', color: '#1e293b', lineHeight: '1.7', margin: '0 0 2rem 0', maxWidth: '600px' },
   ctaButtons: { display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' },
-  primaryBtn: { padding: '0.875rem 2rem', fontSize: '1rem', fontWeight: '700', color: '#0f172a', backgroundColor: '#22d3ee', borderRadius: '8px', textDecoration: 'none' },
-  secondaryBtn: { padding: '0.875rem 2rem', fontSize: '1rem', fontWeight: '700', color: '#ffffff', backgroundColor: 'transparent', border: '2px solid #ffffff', borderRadius: '8px', textDecoration: 'none' },
+  primaryBtn: { padding: '0.875rem 2rem', fontSize: '1rem', fontWeight: '700', color: '#ffffff', backgroundColor: '#0f172a', borderRadius: '8px', textDecoration: 'none' },
+  secondaryBtn: { padding: '0.875rem 2rem', fontSize: '1rem', fontWeight: '700', color: '#0f172a', backgroundColor: 'transparent', border: '2px solid #0f172a', borderRadius: '8px', textDecoration: 'none' },
 };
