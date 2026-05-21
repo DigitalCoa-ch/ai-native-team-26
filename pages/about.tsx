@@ -32,6 +32,28 @@ export default function About() {
           <h1 style={styles.title}>Why Cross-Cultural Email Communication Matters</h1>
           <p style={styles.subtitle}>The hidden cost of cultural miscommunication in B2B email</p>
 
+          <div style={styles.statsSection}>
+            <h2 style={styles.sectionTitle}>📊 The Cost of Miscommunication</h2>
+            <div style={styles.statsGrid}>
+              <div style={styles.statCard}>
+                <div style={styles.statNumber}>70%</div>
+                <div style={styles.statLabel}>of international partnerships fail due to communication issues</div>
+              </div>
+              <div style={styles.statCard}>
+                <div style={styles.statNumber}>$2T+</div>
+                <div style={styles.statLabel}>lost annually due to cross-cultural business miscommunication</div>
+              </div>
+              <div style={styles.statCard}>
+                <div style={styles.statNumber}>3x</div>
+                <div style={styles.statLabel}>higher chance of deal failure when cultural norms are ignored</div>
+              </div>
+              <div style={styles.statCard}>
+                <div style={styles.statNumber}>89%</div>
+                <div style={styles.statLabel}>of employees have witnessed cultural miscommunication at work</div>
+              </div>
+            </div>
+          </div>
+
           <div style={styles.section}>
             <h2 style={styles.sectionTitle}>🇺🇸 The Western Approach</h2>
             <p style={styles.sectionText}>
@@ -63,7 +85,7 @@ export default function About() {
           </div>
 
           <div style={styles.section}>
-            <h2 style={styles.sectionTitle}>⚠️ The Cost of Miscommunication</h2>
+            <h2 style={styles.sectionTitle}>⚠️ The Impact on Partnerships</h2>
             <p style={styles.sectionText}>
               When Western-style emails are sent to Chinese business partners without cultural reframing:
             </p>
@@ -72,6 +94,8 @@ export default function About() {
               <li>📉 <strong>Damaged Guanxi</strong> — Business relationships suffer long-term</li>
               <li>🚫 <strong>Ignored requests</strong> — Emails may go unanswered or receive passive responses</li>
               <li>💼 <strong>Lost deals</strong> — The underlying request never gets fulfilled</li>
+              <li>⏰ <strong>Delays</strong> — Extra rounds of back-and-forth to rebuild trust</li>
+              <li>📝 <strong>Legal risk</strong> — Misunderstood agreements can lead to disputes</li>
             </ul>
           </div>
 
@@ -115,8 +139,13 @@ const styles: { [key: string]: React.CSSProperties } = {
   card: { backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid #334155' },
   title: { fontSize: '1.75rem', fontWeight: '800', color: '#f8fafc', margin: '0 0 0.5rem 0' },
   subtitle: { fontSize: '1rem', color: '#94a3b8', margin: '0 0 2rem 0' },
-  section: { marginBottom: '2rem', padding: '1.5rem', backgroundColor: '#0f172a', borderRadius: '12px', border: '1px solid #334155' },
+  statsSection: { marginBottom: '2rem', padding: '1.5rem', backgroundColor: '#0f172a', borderRadius: '12px', border: '1px solid #334155' },
   sectionTitle: { fontSize: '1.1rem', fontWeight: '700', color: '#f8fafc', margin: '0 0 1rem 0' },
+  statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' },
+  statCard: { backgroundColor: '#1e293b', borderRadius: '12px', padding: '1.25rem', textAlign: 'center', border: '1px solid #334155' },
+  statNumber: { fontSize: '2rem', fontWeight: '800', color: '#22d3ee', marginBottom: '0.5rem' },
+  statLabel: { fontSize: '0.8rem', color: '#94a3b8', lineHeight: '1.4' },
+  section: { marginBottom: '2rem', padding: '1.5rem', backgroundColor: '#0f172a', borderRadius: '12px', border: '1px solid #334155' },
   sectionText: { fontSize: '0.9rem', color: '#cbd5e1', lineHeight: '1.7', margin: '0 0 1rem 0' },
   list: { fontSize: '0.875rem', color: '#94a3b8', lineHeight: '1.8', margin: '0', paddingLeft: '1.5rem' },
   cta: { textAlign: 'center', paddingTop: '1rem' },
