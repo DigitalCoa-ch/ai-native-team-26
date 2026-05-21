@@ -23,7 +23,7 @@ export default function Home() {
           for Chinese business contexts — while preserving your original intent.
         </p>
         <div style={styles.ctaButtons}>
-          <Link href="/workspace" style={styles.primaryBtn}>
+          <Link href="/sections" style={styles.primaryBtn}>
             Start Reframing →
           </Link>
           <Link href="/about" style={styles.secondaryBtn}>
