@@ -3,46 +3,14 @@
 import React from 'react';
 import Link from 'next/link';
 
-const SECTIONS = [
-  {
-    num: 1,
-    title: 'Core Reframing Workspace',
-    subtitle: 'Input & Context',
-    description: 'Draft your raw Western email, select relationship context, and culture target to prepare for reframing.',
-    icon: '✏️',
-    href: '/workspace',
-    color: '#22d3ee',
-  },
-  {
-    num: 2,
-    title: 'Knowledge-Based Manager',
-    subtitle: 'Data Foundation',
-    description: 'View the active grounding guardrails — the Chinese corporate communication rules driving the analysis.',
-    icon: '📚',
-    href: '/knowledge',
-    color: '#f59e0b',
-  },
-  {
-    num: 3,
-    title: 'Panel & Output',
-    subtitle: 'Reasoning Layer',
-    description: 'See the reframed email, Mianzi risk meter, and which rules were triggered to transform your message.',
-    icon: '🧠',
-    href: '/output',
-    color: '#a78bfa',
-  },
-  {
-    num: 4,
-    title: 'HITL Control Center',
-    subtitle: 'Human Checkpoint',
-    description: 'Refine tone, copy the result, or export to Outlook. Human review is required before any action.',
-    icon: '⚠️',
-    href: '/control',
-    color: '#fb923c',
-  },
-];
-
 const BACKGROUND_IMAGE = 'https://minimax-algeng-chat-tts-us.oss-us-east-1.aliyuncs.com/ccv2%2F2026-05-20%2FMiniMax-M2.7%2F2053528104411869618%2Ffb386fe3dfbe9bdf9a5b136ed505fb1ccc0e5f43cdc18caee203154ac32dbc01..jpeg?Expires=1779362194&OSSAccessKeyId=LTAI5tCpJNKCf5EkQHSuL9xg&Signature=xsItlr31gpCFmljMHfdfA4dwpjE%3D';
+
+const FEATURES = [
+  { icon: '✏️', title: 'Reframe Emails', desc: 'Transform direct Western demands into culturally appropriate Chinese business communications' },
+  { icon: '📚', title: 'Learn the Rules', desc: 'Understand the five core principles of Chinese corporate communication' },
+  { icon: '🧠', title: 'See the Logic', desc: 'Review which rules were triggered and why your message was transformed' },
+  { icon: '⚠️', title: 'Human Approval', desc: 'Every reframe requires human review before any action is taken' },
+];
 
 export default function Home() {
   return (
@@ -53,28 +21,32 @@ export default function Home() {
         <span style={styles.topLogo}>🇨🇳</span>
       </div>
 
-      <div style={styles.heroSection}>
-        <h1 style={styles.heroTitle}>What would you like to do?</h1>
-        <p style={styles.heroSubtitle}>Select a module below to get started</p>
-      </div>
-
       <main style={styles.mainContent}>
-        <div style={styles.grid}>
-          {SECTIONS.map((section) => (
-            <Link key={section.num} href={section.href} style={{ textDecoration: 'none' }}>
-              <div style={{ ...styles.card, borderTop: `5px solid ${section.color}` }}>
-                <div style={styles.cardNum}>
-                  <span style={{ ...styles.numCircle, backgroundColor: section.color }}>{section.num}</span>
-                </div>
-                <div style={styles.cardIcon}>{section.icon}</div>
-                <h2 style={styles.cardTitle}>{section.title}</h2>
-                <p style={styles.cardSubtitle}>{section.subtitle}</p>
-                <p style={styles.cardDesc}>{section.description}</p>
-                <div style={{ ...styles.cardAction, color: section.color }}>
-                  Open module →
-                </div>
-              </div>
+        <div style={styles.heroCard}>
+          <h1 style={styles.heroTitle}>Cultural Bridge Builder<br />Between The USA & China</h1>
+          <p style={styles.heroSlogan}>Translate Meaning, Not Just Language</p>
+          <div style={styles.divider} />
+          <p style={styles.heroDesc}>
+            Transform direct Western email drafts into culturally appropriate communications 
+            for Chinese business contexts — while preserving your original intent.
+          </p>
+          <div style={styles.ctaButtons}>
+            <Link href="/workspace" style={styles.primaryBtn}>
+              Start Reframing →
             </Link>
+            <Link href="/about" style={styles.secondaryBtn}>
+              Learn More
+            </Link>
+          </div>
+        </div>
+
+        <div style={styles.featuresGrid}>
+          {FEATURES.map((feature, i) => (
+            <div key={i} style={styles.featureCard}>
+              <div style={styles.featureIcon}>{feature.icon}</div>
+              <h3 style={styles.featureTitle}>{feature.title}</h3>
+              <p style={styles.featureDesc}>{feature.desc}</p>
+            </div>
           ))}
         </div>
       </main>
@@ -83,21 +55,22 @@ export default function Home() {
 }
 
 const styles: { [key: string]: React.CSSProperties } = {
-  pageWrapper: { fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", minHeight: '100vh', backgroundColor: '#f8fafc' },
-  topBar: { display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1.5rem 2rem', backgroundColor: '#0f172a' },
+  pageWrapper: { fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif", minHeight: '100vh', backgroundColor: '#0f172a' },
+  topBar: { display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '1.5rem 2rem', backgroundColor: 'rgba(15, 23, 42, 0.9)', borderBottom: '1px solid #1e293b' },
   topLogo: { fontSize: '1.75rem' },
   topTitle: { fontSize: '1.5rem', fontWeight: '800', color: '#ffffff', letterSpacing: '0.02em' },
-  heroSection: { padding: '2.5rem 2rem 1.5rem', textAlign: 'left', maxWidth: '1200px', margin: '0 auto' },
-  heroTitle: { fontSize: '1.75rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.25rem 0' },
-  heroSubtitle: { fontSize: '1rem', color: '#64748b', margin: 0 },
-  mainContent: { padding: '0 2rem 3rem', maxWidth: '1200px', margin: '0 auto' },
-  grid: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' },
-  card: { backgroundColor: '#ffffff', borderRadius: '16px', padding: '2rem', border: '1px solid #e2e8f0', cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s', display: 'flex', flexDirection: 'column' },
-  cardNum: { marginBottom: '1rem' },
-  numCircle: { width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: '800', color: '#0f172a' },
-  cardIcon: { fontSize: '2.5rem', marginBottom: '1rem' },
-  cardTitle: { fontSize: '1.1rem', fontWeight: '800', color: '#0f172a', margin: '0 0 0.25rem 0' },
-  cardSubtitle: { fontSize: '0.75rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748b', margin: '0 0 1rem 0' },
-  cardDesc: { fontSize: '0.875rem', color: '#475569', lineHeight: '1.6', margin: '0 0 1.5rem 0', flex: 1 },
-  cardAction: { fontSize: '0.875rem', fontWeight: '700' },
+  mainContent: { padding: '3rem 2rem', maxWidth: '1000px', margin: '0 auto' },
+  heroCard: { textAlign: 'center', padding: '3rem 2rem', backgroundColor: 'rgba(30, 41, 59, 0.95)', borderRadius: '24px', border: '1px solid #334155', marginBottom: '3rem', backdropFilter: 'blur(8px)' },
+  heroTitle: { fontSize: '2.25rem', fontWeight: '800', color: '#f8fafc', margin: '0 0 1rem 0', lineHeight: '1.2' },
+  heroSlogan: { fontSize: '1.25rem', fontWeight: '600', color: '#22d3ee', margin: '0 0 1.5rem 0', letterSpacing: '0.02em' },
+  divider: { width: '80px', height: '4px', backgroundColor: '#22d3ee', borderRadius: '2px', margin: '0 auto 1.5rem' },
+  heroDesc: { fontSize: '1rem', color: '#94a3b8', lineHeight: '1.7', margin: '0 0 2rem 0', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' },
+  ctaButtons: { display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' },
+  primaryBtn: { padding: '0.875rem 2rem', fontSize: '1rem', fontWeight: '700', color: '#0f172a', backgroundColor: '#22d3ee', borderRadius: '8px', textDecoration: 'none' },
+  secondaryBtn: { padding: '0.875rem 2rem', fontSize: '1rem', fontWeight: '700', color: '#22d3ee', backgroundColor: 'transparent', border: '2px solid #22d3ee', borderRadius: '8px', textDecoration: 'none' },
+  featuresGrid: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' },
+  featureCard: { backgroundColor: 'rgba(30, 41, 59, 0.9)', borderRadius: '16px', padding: '1.75rem', border: '1px solid #334155', backdropFilter: 'blur(8px)' },
+  featureIcon: { fontSize: '2rem', marginBottom: '0.75rem' },
+  featureTitle: { fontSize: '1rem', fontWeight: '700', color: '#f8fafc', margin: '0 0 0.5rem 0' },
+  featureDesc: { fontSize: '0.875rem', color: '#94a3b8', lineHeight: '1.6', margin: 0 },
 };
